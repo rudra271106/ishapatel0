@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isha Patel | Exclusive VIP Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold-primary: #f5c065;
+      --gold-secondary: #d49a37;
+      --gold-light: #fff0be;
+      --bg-dark: #070709;
+      --card-bg: rgba(18, 18, 24, 0.75);
+      --card-border: rgba(245, 192, 101, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 20%, #1c150c 0%, var(--bg-dark) 70%);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 14px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Gold Aura */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(245, 192, 101, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Main Container - Strict Symmetrical Alignment */
+    .vip-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 154, 55, 0.12);
+    }
+
+    /* Top Premium Pill */
+    .vip-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(245, 192, 101, 0.08);
+      border: 1px solid rgba(245, 192, 101, 0.35);
+      color: var(--gold-primary);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .vip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+
+    /* Profile Avatar Section */
+    .avatar-wrapper {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 18px;
+    }
+
+    .avatar-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      padding: 3.5px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-secondary), #684511, var(--gold-primary));
+      box-shadow: 0 0 24px rgba(245, 192, 101, 0.4);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #111;
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      width: 28px;
+      height: 28px;
+      background: #0088cc;
+      border: 2px solid #0e0e14;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 136, 204, 0.5);
+    }
+
+    .verified-badge svg {
+      width: 15px;
+      height: 15px;
+      fill: #ffffff;
+    }
+
+    /* Titles & Subtitle */
+    .channel-title {
+      font-family: 'Cinzel', serif;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #ffffff 20%, var(--gold-light) 60%, var(--gold-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .channel-subtitle {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 22px;
+    }
+
+    /* Metrics Strip */
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 22px;
+    }
+
+    .stat-item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat-item:not(:last-child) {
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-num {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--gold-primary);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Straight 15-Second Progress Card */
+    .timer-card {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(245, 192, 101, 0.18);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+
+    .timer-status {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .timer-count {
+      color: var(--gold-primary);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--gold-secondary), var(--gold-primary), #fff0be);
+      border-radius: 10px;
+      transition: width 1s linear;
+      box-shadow: 0 0 10px rgba(245, 192, 101, 0.7);
+    }
+
+    /* High-Converting CTA Join Button */
+    .join-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #0b0a07;
+      background: linear-gradient(135deg, #fff2cc 0%, var(--gold-primary) 45%, var(--gold-secondary) 100%);
+      box-shadow: 0 10px 30px rgba(212, 154, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      animation: buttonPulse 2.2s infinite ease-in-out;
+      transition: transform 0.2s ease;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(245, 192, 101, 0.55);
+    }
+
+    .join-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Light Glare / Sheen effect */
+    .join-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transform: skewX(-20deg);
+      animation: glareSweep 3.2s infinite;
+    }
+
+    .join-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* Footer Trust Details */
+    .footer-note {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note svg {
+      width: 13px;
+      height: 13px;
+      fill: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 8px 24px rgba(212, 154, 55, 0.35);
+      }
+      50% {
+        box-shadow: 0 12px 36px rgba(245, 192, 101, 0.65), 0 0 16px rgba(255, 240, 190, 0.45);
+      }
+    }
+
+    @keyframes glareSweep {
+      0% { left: -100%; }
+      35% { left: 160%; }
+      100% { left: 160%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="vip-card">
+    <!-- Top Pill -->
+    <div class="vip-tag">
+      <span class="vip-dot"></span>
+      Official VIP Channel
+    </div>
+
+    <!-- Symmetrical Luxury Avatar -->
+    <div class="avatar-wrapper">
+      <div class="avatar-ring">
+        <img
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+          alt="Isha Patel"
+          class="avatar-img"
+        />
+      </div>
+      <div class="verified-badge" title="Verified Creator">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Channel Info -->
+    <h1 class="channel-title">Isha Patel</h1>
+    <p class="channel-subtitle">Exclusive Daily Updates &amp; Premium Community</p>
+
+    <!-- Credibility Stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-num">58.4K</span>
+        <span class="stat-label">Members</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Verified</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">Access</span>
+      </div>
+    </div>
+
+    <!-- Straight Linear 15s Countdown -->
+    <div class="timer-card">
+      <div class="timer-header">
+        <span class="timer-status">Redirecting to Telegram in</span>
+        <span class="timer-count" id="timerCount">15s</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="https://t.me/+-rmmyyFJL7gyNGY1" id="joinBtn" class="join-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+      </svg>
+      <span>Join Telegram Now</span>
+    </a>
+
+    <!-- Security Info -->
+    <div class="footer-note">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 16l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/>
+      </svg>
+      <span>End-to-End Encrypted &amp; Instant Access</span>
+    </div>
+  </div>
+
+  <script>
+    const TELEGRAM_URL = "https://t.me/+-rmmyyFJL7gyNGY1";
+    const TOTAL_SECONDS = 15;
+    let remainingTime = TOTAL_SECONDS;
+
+    const timerCountEl = document.getElementById("timerCount");
+    const progressFillEl = document.getElementById("progressFill");
+    const joinBtn = document.getElementById("joinBtn");
+
+    let redirected = false;
+
+    function redirectToTelegram() {
+      if (!redirected) {
+        redirected = true;
+        window.location.href = TELEGRAM_URL;
+      }
+    }
+
+    const countdownInterval = setInterval(() => {
+      remainingTime--;
+
+      if (remainingTime <= 0) {
+        clearInterval(countdownInterval);
+        timerCountEl.textContent = "Opening...";
+        progressFillEl.style.width = "0%";
+        redirectToTelegram();
+      } else {
+        timerCountEl.textContent = remainingTime + "s";
+        const percentage = (remainingTime / TOTAL_SECONDS) * 100;
+        progressFillEl.style.width = percentage + "%";
+      }
+    }, 1000);
+
+    // If user clicks manually before countdown ends
+    joinBtn.addEventListener("click", () => {
+      clearInterval(countdownInterval);
+    });
+  </script>
+</body>
+</html>
